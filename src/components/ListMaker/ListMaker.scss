@@ -1,0 +1,23 @@
+.add-item-prompt{
+    position: fixed;
+    right: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-between;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid black;
+}
+
+.add-item-prompt > * {
+    margin-bottom: 3px;
+}
+
+.rect-input, .square-input{
+    display: none;
+}
+
+.rank-input{
+    text-align: center;
+}
