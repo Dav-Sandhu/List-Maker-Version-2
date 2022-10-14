@@ -1,23 +1,24 @@
+@use "../../index";
+
 .add-item-prompt{
-    position: fixed;
-    right: 0px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: space-between;
+
+    @include index.flexbox(column, center, space-between);
+
+    position: absolute;
     padding: 10px;
-    margin: 5px;
+    width: 15vw;
     border: 1px solid black;
-}
+    box-shadow: 1px 1px 3px grey;
 
-.add-item-prompt > * {
-    margin-bottom: 3px;
-}
+    > * {
+        margin-bottom: 3px;
+    }
 
-.rect-input, .square-input{
-    display: none;
-}
+    .rect-input, .square-input{
+        display: none;
+    }
 
-.rank-input{
-    text-align: center;
+    .rank-input{
+        text-align: center;
+    }
 }
