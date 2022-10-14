@@ -1,12 +1,13 @@
+@use "../../index";
+
 .settings{
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: space-between;
-    padding: 5px;
+
+    @include index.flexbox(column, space-between, space-between);
+
+    position: absolute;
+    padding: 10px;
     border: 1px solid black;
-    width: 14em;
-    height: 10em;
-    margin: 5px;
+    width: 15vw;
+    height: 10vw;
+    box-shadow: -1px 1px 3px grey;
 }
