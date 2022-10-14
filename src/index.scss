@@ -1,0 +1,12 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family:'Courier New', Courier, monospace, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+@mixin flexbox($dir, $jc, $ai) {
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $jc;
+    align-items: $ai;
+}
