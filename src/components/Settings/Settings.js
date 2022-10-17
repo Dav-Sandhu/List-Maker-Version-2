@@ -1,34 +1,26 @@
 import { useDispatch, useSelector } from "react-redux"
-import { setDarkMode, setOrder, setView, setItemsPerPage } from "../../reducers/settingsSlice"
+import { setDarkMode, setOrder, setItemsPerPage } from "../../reducers/settingsSlice"
+import { sortItems } from "../../reducers/itemsSlice"
 import './Settings.scss'
 
 const Settings = () => {
     const dispatch = useDispatch()
-    const { darkMode, order, view, itemsPerPage } = useSelector(state => state.settings)
+    const { darkMode, order, itemsPerPage } = useSelector(state => state.settings)
 
     return(
         <div className="settings"> 
-            <h1>Settings</h1>
-
             <label htmlFor="order">Order: </label>
             <select 
                 id="order"
                 data-testid="order"
                 value={order}
-                onChange={(e) => dispatch(setOrder(e.target.value))}>
+                onChange={(e) => {
+                    dispatch(setOrder(e.target.value))
+                    dispatch(sortItems(e.target.value))
+                }}>
                 <option value="asc">Ascending</option>
                 <option value="desc">Descending</option>
                 <option value="rand">Random</option>
-            </select>
-
-            <label htmlFor="view">View: </label>
-            <select
-                id="view"
-                data-testid="view"
-                value={view}
-                onChange={(e) => dispatch(setView(e.target.value))}>
-                <option value="vertical">Vertical</option>
-                <option value="horizontal">Horizontal</option>
             </select>
 
             <div className="darkMode">
