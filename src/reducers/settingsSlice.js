@@ -5,7 +5,6 @@ const settingsSlice = createSlice({
     initialState: {
         darkMode: false,
         order: "asc",
-        view: "vertical",
         itemsPerPage: 25
     },
     reducers: {
@@ -15,11 +14,6 @@ const settingsSlice = createSlice({
         setOrder(state, { payload }){
             if (payload === 'asc' || payload === 'desc' || payload === 'rand'){
                 state.order = payload
-            }
-        },
-        setView(state, { payload }){
-            if (payload === 'horizontal' || payload === 'vertical'){
-                state.view = payload
             }
         },
         setItemsPerPage(state, { payload }){
