@@ -4,14 +4,46 @@
 
     @include index.flexbox(column, center, space-between);
 
+    background-color: white;
+    top: 5vh;
     position: absolute;
-    padding: 10px;
-    width: 15vw;
     border: 1px solid black;
     box-shadow: 1px 1px 3px grey;
+    left: 0;
 
-    > * {
+    * {
         margin-bottom: 3px;
+        font-size: 1em;
+    }
+
+    font-size: 1.5em;
+    padding: 10px;
+    width: 24vw;
+
+    @media (min-width: 0px) and (max-width: 480px) {
+        padding: 5px;
+        font-size: 0.8em;
+        width: 35vw;
+
+        * {
+            font-size: 0.75em;
+        }
+    }
+
+    @media (min-width: 481px) and (max-width: 620px) {
+        width: 40vw;
+
+        * {
+            font-size: 0.8em;
+        }
+    }
+
+    @media (min-width: 621px) and (max-width: 950px) {
+        width: 30vw;
+
+        * {
+            font-size: 0.8em;
+        }
     }
 
     .rect-input, .square-input{
