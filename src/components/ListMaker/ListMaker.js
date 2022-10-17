@@ -1,20 +1,22 @@
 import { useDispatch, useSelector } from "react-redux"
-import { setRank, setName, setDate, setShape, setImage, setItems, clearItemObj } from '../../reducers/itemsSlice'
+import { setRank, setName, setDate, setShape, setImage, setItems, clearItemObj, sortItems } from '../../reducers/itemsSlice'
 import './ListMaker.scss'
 
 const ListMaker = () => {
     const dispatch = useDispatch()
     const item = useSelector(state => state.items.item)
+    const order = useSelector(state => state.settings.order)
 
     const submitEvent = (e) => {
         e.preventDefault()
         dispatch(setItems())
         dispatch(clearItemObj())
+        dispatch(sortItems(order))
     }
 
     return(
         <form
-            className="add-item-prompt" 
+            className="add-item-prompt"
             onSubmit={submitEvent}>
 
             <label htmlFor="name-input">Name: </label>
