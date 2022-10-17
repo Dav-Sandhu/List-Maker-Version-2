@@ -1,12 +1,24 @@
 import { Provider } from 'react-redux'
+import { HTML5Backend } from 'react-dnd-html5-backend'
+import { TouchBackend } from 'react-dnd-touch-backend'
+import { DndProvider } from 'react-dnd'
 import Settings from './Settings/Settings'
 import { store } from '../store'
 import ListMaker from './ListMaker/ListMaker'
 import Items from './Items/Items'
 import Navbar from './Navbar/Navbar'
 import { useId } from 'react'
+import StoredLists from './StoredLists/StoredLists'
+
+const isTouchDevice = () => {  
+  return (('ontouchstart' in window) ||  
+    (navigator.maxTouchPoints > 0) ||  
+    (navigator.msMaxTouchPoints > 0));  
+} 
 
 function App() {
+
+  const mobile = isTouchDevice()
 
   const elements = [
     {
@@ -26,7 +38,8 @@ function App() {
       name: "Load List",
       class: "nav-load",
       id: useId(),
-      flag: false
+      flag: true,
+      element: <StoredLists />
     },
     {
       name: "Settings",
@@ -40,7 +53,10 @@ function App() {
   return (
     <Provider store={ store }>
       <Navbar ELEMENTS={elements} />
-      <Items />
+      
+      <DndProvider backend={mobile ? TouchBackend : HTML5Backend}>
+        <Items />
+      </DndProvider>
     </Provider>
   )
 }
