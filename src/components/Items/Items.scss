@@ -1,0 +1,133 @@
+@use "../../index";
+
+$WIDTH: 20vw;
+$HEIGHT: 30vw;
+
+:root{
+  --dark-bg: white;
+  --dark-text: black;
+  --dark-border: 1px solid black;
+}
+
+.dark-mode{
+  --dark-bg: black;
+  --dark-text: white;
+  --dark-border: 1px solid white;
+}
+
+.dark-mode, .light-mode{
+
+  @include index.flexbox(column, center, center);
+
+  position: absolute;
+  width: 100%;
+  background-color: var(--dark-bg);
+  top: 5vh;
+  min-height: 95vh;
+
+  *{
+    color: var(--dark-text);
+  }
+
+  .list-title{
+
+    border: none;
+    background-color: transparent;
+    margin: 10px;
+    width: 50%;
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+
+  .items{
+
+    @include index.flexbox(column, space-between, center);
+  
+    .item-info{
+      text-align: center;
+  
+      h2{
+        max-width:25vw;
+        word-wrap:break-word;
+      }
+    }
+  
+    .item{
+      @include index.flexbox(column, space-between, center);
+      margin-bottom: 10px;
+      transform: translate3d(0, 0, 0);
+    }
+  
+    .rank{
+  
+      @include index.flexbox(column, center, center);
+  
+      position: absolute;
+      border: var(--dark-border);
+      background-color: red;
+      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+      font-family: Arial, Helvetica, sans-serif;
+      color: white;
+      font-size: 2.5vw;
+      height: 3.8vw;
+      width: 3.8vw;
+      text-align: center;
+      z-index: 2;
+      
+    }
+  
+    .rect, .square{
+      width: $WIDTH;
+      border: var(--dark-border);
+      box-shadow: 0px 0px 3px black;
+      padding: 5px;
+    }
+  
+    .remove-rect, .remove-square{
+      position: absolute;
+      font-weight: bold;
+      z-index: 1;
+      color: rgb(102, 102, 102);
+      font-size: 2em;
+      opacity: 0;
+      margin: 6px;
+      border-radius: 0px;
+      width: $WIDTH;
+  
+      &:hover{
+        opacity: 0.5;
+      }
+    }
+
+    .imageless{
+      button{
+        background-color: red;
+        font-family: Arial, Helvetica, sans-serif;
+        color: white;
+        border: var(--dark-border);
+        font-weight: bold;
+        opacity: 0;
+  
+        &:hover{
+          background-color: orangered;
+        }
+      }
+
+      &:hover, &:active{
+        button{
+          opacity: 1;
+        }
+      }
+    }
+  
+    .rect, .remove-rect{
+      height: $HEIGHT;
+    }
+  
+    .square, .remove-square{
+      height: $WIDTH;
+    }
+  }
+}
