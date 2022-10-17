@@ -5,9 +5,37 @@
     @include index.flexbox(column, space-between, space-between);
 
     position: absolute;
-    padding: 10px;
+    top: 5vh;
+    background-color: white;
     border: 1px solid black;
-    width: 15vw;
-    height: 10vw;
     box-shadow: -1px 1px 3px grey;
+    right: 0;
+
+    * {
+        margin-bottom: 5px;
+        font-size: 1.15em;
+    }
+
+    width: 21vw;
+    padding: 10px;
+
+    @media (min-width: 0px) and (max-width: 480px) {
+        width: 35vw;
+
+        * {
+            font-size: 0.8em;
+        }
+    }
+
+    @media (min-width: 481px) and (max-width: 768px) {
+        width: 40vw;
+
+        * {
+            font-size: 1em;
+        }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+        width: 30vw;
+    }
 }
