@@ -1,16 +1,12 @@
-import express from 'express'
-import dotenv from 'dotenv'
-dotenv.config()
-import path from 'path'
-import mongoose from 'mongoose'
-import { readFileSync } from 'fs'
-import { fileURLToPath } from 'url'
-import List from './list.js'
-import cors from 'cors'
+const express = require('express')
+const path = require('path')
+const mongoose = require('mongoose')
+const List = require('./list.js')
+const cors = require('cors')
+const { readFileSync } = require('fs')
+require('dotenv').config()
 
-const port = process.env.PORT || 8000
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const port = process.env.PORT || process.env.MONGODB_URI || 8000
 
 const userData = JSON.parse(readFileSync(path.join(__dirname, "data.json"), "utf-8"))
 
@@ -63,9 +59,12 @@ app.post('/', (req, res) => {
 		insertList(JSON.parse(req.body.list), req.body.name)
 		res.send("request received!")
 	}else{
-		List.deleteOne({rank: parseInt(req.body.rank)})
-			.catch(err => res.send(err))
+		List.deleteOne({name: req.body.name})
+			.then(() => res.send("request received!"))
+				.catch(err => res.send(err))
 	}
+	
+	
 })
 
 mongoose.connect(dbURI)
