@@ -52,7 +52,9 @@ const itemsSlice = createSlice({
               }else if (payload === 'desc'){
                 state.items.sort(function(a, b){return b.rank - a.rank})
               }else{
-                state.items.sort(function(a, b){return Math.floor((Math.random() * 3) - 1)})
+                state.items.sort(function(a, b){return (
+                    Math.floor(Math.random() * 2) === 0 ? -1 : 1
+                )})
               }
         },
         clearItemObj(state){
