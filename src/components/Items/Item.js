@@ -60,3 +60,5 @@ const Item = ({ name, date, image, rank, shape }) => {
         </div>
     )
 }
+
+export default Item
