@@ -19,8 +19,8 @@
     width: 21vw;
     padding: 10px;
 
-    @media (min-width: 0px) and (max-width: 480px) {
-        width: 35vw;
+    @media (min-width: 0px) and (max-width: 768px) {
+        width: 30vw;
 
         * {
             font-size: 0.8em;
@@ -28,14 +28,14 @@
     }
 
     @media (min-width: 481px) and (max-width: 768px) {
-        width: 40vw;
-
+        width: 25vw;
+        
         * {
             font-size: 1em;
         }
     }
 
     @media (min-width: 769px) and (max-width: 1024px) {
-        width: 30vw;
+        width: 20vw;
     }
 }
