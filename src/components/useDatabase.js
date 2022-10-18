@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const HOST = "http://localhost:8000/"
+const HOST = "https://list-maker-version-2.herokuapp.com/"
 
 const useDatabase = () => {
 
