@@ -20,17 +20,17 @@ const useDatabase = () => {
       name: NAME,
       list: JSON.stringify(LIST), 
       type: "insert"})
-      .then(res => console.log(res))
+      .then(() => alert("List Saved!"))
         .catch(err => console.log(err))
   }
 
-  const removeList = async (RANK) => {
-    axios.post(HOST, {rank: RANK})
-      .then(res => console.log(res))
-        .catch(err => console.log(err))
+  const removeList = async (NAME) => {
+    await axios.post(HOST, {name: NAME})
+      .catch(err => console.log(err))
   }
 
   return [getLists, addList, removeList]
 }
 
+export default useDatabase
 export default useDatabase
