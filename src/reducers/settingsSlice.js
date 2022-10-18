@@ -4,8 +4,7 @@ const settingsSlice = createSlice({
     name: "settings",
     initialState: {
         darkMode: false,
-        order: "asc",
-        itemsPerPage: 25
+        order: "asc"
     },
     reducers: {
         setDarkMode(state){
@@ -15,14 +14,9 @@ const settingsSlice = createSlice({
             if (payload === 'asc' || payload === 'desc' || payload === 'rand'){
                 state.order = payload
             }
-        },
-        setItemsPerPage(state, { payload }){
-            if (typeof parseInt(payload) === "number"){
-                state.itemsPerPage = payload
-            }
         }
     }
 })
 
-export const { setDarkMode, setOrder, setView, setItemsPerPage } = settingsSlice.actions
+export const { setDarkMode, setOrder, setView } = settingsSlice.actions
 export default settingsSlice.reducer
