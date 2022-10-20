@@ -2,13 +2,13 @@ import { useDispatch, useSelector } from "react-redux"
 import { setDarkMode, setOrder } from "../../reducers/settingsSlice"
 import { sortItems } from "../../reducers/itemsSlice"
 import { setLogin, setUsername, setPassword } from "../../reducers/settingsSlice"
-import useDatabase from "../useDatabase"
+//import useDatabase from "../useDatabase"
 import './Settings.scss'
 
 const Settings = () => {
     const dispatch = useDispatch()
     const { darkMode, order, login, username, password } = useSelector(state => state.settings)
-    const [,,,adminLogin] = useDatabase()
+    //const [,,,adminLogin] = useDatabase()
 
     return(
         <>
@@ -40,7 +40,7 @@ const Settings = () => {
 
                 <button onClick={() => dispatch(setLogin())}>Account Login</button>
             </div>
-            <div className={login ? "login" : "none"}>
+            {/* <div className={login ? "login" : "none"}>
                 <form onSubmit={e => {
                     e.preventDefault()
                     dispatch(setLogin())
@@ -68,7 +68,7 @@ const Settings = () => {
                 <button
                     className="exit-login" 
                     onClick={() => dispatch(setLogin())}>✖</button>
-            </div> 
+            </div>  */}
         </>
     )
 }
