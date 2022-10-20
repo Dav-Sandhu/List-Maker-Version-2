@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from "react-redux"
 import { setDarkMode, setOrder } from "../../reducers/settingsSlice"
 import { sortItems } from "../../reducers/itemsSlice"
-import { setLogin, setUsername, setPassword } from "../../reducers/settingsSlice"
+import { setLogin } from "../../reducers/settingsSlice" //setUsername, setPassword
 //import useDatabase from "../useDatabase"
 import './Settings.scss'
 
 const Settings = () => {
     const dispatch = useDispatch()
-    const { darkMode, order, login, username, password } = useSelector(state => state.settings)
+    const { darkMode, order } = useSelector(state => state.settings) //login, username, password
     //const [,,,adminLogin] = useDatabase()
 
     return(
