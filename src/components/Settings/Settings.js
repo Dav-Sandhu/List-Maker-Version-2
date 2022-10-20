@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { setDarkMode, setOrder } from "../../reducers/settingsSlice"
 import { sortItems } from "../../reducers/itemsSlice"
-import { setLogin } from "../../reducers/settingsSlice" //setUsername, setPassword
+//import { setLogin } from "../../reducers/settingsSlice" //setUsername, setPassword
 //import useDatabase from "../useDatabase"
 import './Settings.scss'
 
