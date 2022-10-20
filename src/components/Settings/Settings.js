@@ -38,7 +38,7 @@ const Settings = () => {
                     <option value="rand">Random</option>
                 </select>
 
-                <button onClick={() => dispatch(setLogin())}>Account Login</button>
+                {/*<button onClick={() => dispatch(setLogin())}>Account Login</button>*/}
             </div>
             {/* <div className={login ? "login" : "none"}>
                 <form onSubmit={e => {
