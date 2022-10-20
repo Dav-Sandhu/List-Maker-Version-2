@@ -48,6 +48,7 @@
 
     @include index.flexbox(row, center, center);
 
+    display: none !important;;
     position: fixed;
     background-color: grey;
     opacity: 0.9;
