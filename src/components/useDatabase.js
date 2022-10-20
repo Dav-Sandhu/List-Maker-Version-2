@@ -35,7 +35,6 @@ const useDatabase = () => {
       username: USERNAME, 
       password: PASSWORD
     })
-      .then(() => alert("switched accounts!"))
       .catch(err => console.log(err))
   }
 
