@@ -3,10 +3,22 @@ import { createSlice } from '@reduxjs/toolkit'
 const settingsSlice = createSlice({
     name: "settings",
     initialState: {
+        username: "",
+        password: "",
+        login: false,
         darkMode: false,
         order: "asc"
     },
     reducers: {
+        setLogin(state){
+            state.login = !state.login
+        },
+        setUsername(state, { payload }){
+            state.username = payload
+        },
+        setPassword(state, { payload }){
+            state.password = payload
+        },
         setDarkMode(state){
             state.darkMode = !state.darkMode
         },
@@ -18,5 +30,5 @@ const settingsSlice = createSlice({
     }
 })
 
-export const { setDarkMode, setOrder, setView } = settingsSlice.actions
+export const { setDarkMode, setOrder, setUsername, setPassword, setLogin } = settingsSlice.actions
 export default settingsSlice.reducer

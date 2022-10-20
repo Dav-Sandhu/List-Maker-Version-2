@@ -29,7 +29,17 @@ const useDatabase = () => {
       .catch(err => console.log(err))
   }
 
-  return [getLists, addList, removeList]
+  const adminLogin = async (USERNAME, PASSWORD) => {
+    await axios.post(HOST, {
+      type: "admin", 
+      username: USERNAME, 
+      password: PASSWORD
+    })
+      .then(() => alert("switched accounts!"))
+      .catch(err => console.log(err))
+  }
+
+  return [getLists, addList, removeList, adminLogin]
 }
 
 export default useDatabase
