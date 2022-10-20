@@ -10,8 +10,18 @@ const port = process.env.PORT || process.env.MONGODB_URI || 8000
 
 const userData = JSON.parse(readFileSync(path.join(__dirname, "data.json"), "utf-8"))
 
-const dbURI = "mongodb+srv://" + userData.username + ":" + userData.password + 
-	"@project-backend.grxkvf1.mongodb.net/ListData?retryWrites=true&w=majority"
+const user = {
+	username: process.env.DBUser || userData.username,
+	password: process.env.DBPass || userData.password,
+	database: "ListData"
+}
+
+if (user.username !== userData.username){
+	user.database = "AdminListData"
+}
+
+const dbURI = "mongodb+srv://" + user.username + ":" + user.password + 
+	"@project-backend.grxkvf1.mongodb.net/" + user.database + "?retryWrites=true&w=majority"
 
 const insertList = async (list, name) => {
 	
