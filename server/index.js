@@ -49,7 +49,7 @@ app.use(cors())
 app.use(express.json())
 
 app.get('/', (req, res) => {
-  List.find().then((result) => res.send(result))
+  res.send("Accessing " + user.username + "'s Database...")
 })
 
 app.get('/add-list/:list/:name/', (req, res) => {
@@ -68,6 +68,10 @@ app.post('/', (req, res) => {
 	if (req.body.type === "insert"){
 		insertList(JSON.parse(req.body.list), req.body.name)
 		res.send("request received!")
+	}else if (req.body.type === "getLists"){
+		List.find()
+			.then(result => res.send(result))
+				.catch(err => console.log(err))
 	}else{
 		List.deleteOne({name: req.body.name})
 			.then(() => res.send("request received!"))

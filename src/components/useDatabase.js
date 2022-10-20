@@ -8,7 +8,7 @@ const useDatabase = () => {
 
     let lists = []
     
-    await axios.get(HOST)
+    await axios.post(HOST, {type: "getLists"})
       .then(res => lists = res)
         .catch(err => console.log(err))
 

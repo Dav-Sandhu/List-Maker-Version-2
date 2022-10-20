@@ -29,8 +29,14 @@ const Navigation = () => {
   }
 
   const insertList = async () => {
-    await addList(items, listName)
-    await loadLists(true)
+    const lists = await getLists()
+
+    if (lists.data.length < 5){
+      await addList(items, listName)
+      await loadLists(true)
+    }else{
+      alert("Database is full! please delete some lists to continue...")
+    }
   }
 
   const deleteList = async (LIST) => {
